@@ -6,7 +6,7 @@ namespace NEventStore
     /// <summary>
     ///     Represents a materialized view of a stream at specific revision.
     /// </summary>
-    [DataContract]
+    [DataContract(Namespace="NEventStore", Name="d12c2b0a-f26f-42c3-a206-125f547a2df5")]
     [Serializable]
     public class Snapshot : ISnapshot
     {
@@ -42,25 +42,25 @@ namespace NEventStore
         protected Snapshot()
         {}
 
-        [DataMember]
+        [DataMember(Order=1)]
         public virtual string BucketId { get; private set; }
 
         /// <summary>
         ///     Gets the value which uniquely identifies the stream to which the snapshot applies.
         /// </summary>
-        [DataMember]
+        [DataMember(Order=2)]
         public virtual string StreamId { get; private set; }
 
         /// <summary>
         ///     Gets the position at which the snapshot applies.
         /// </summary>
-        [DataMember]
+        [DataMember(Order=3)]
         public virtual int StreamRevision { get; private set; }
 
         /// <summary>
         ///     Gets the snapshot or materialized view of the stream at the revision indicated.
         /// </summary>
-        [DataMember]
+        [DataMember(Order=4)]
         public virtual object Payload { get; private set; }
     }
 }
